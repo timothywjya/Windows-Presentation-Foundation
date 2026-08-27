@@ -2,11 +2,7 @@ using System.Collections.Generic;
 using Belajar_1.Domain.Entities;
 
 namespace Belajar_1.Domain.Interfaces
-{
-    /// <summary>
-    /// Kontrak akses data User. Domain & Application hanya bergantung pada
-    /// interface ini, bukan pada implementasi MySQL-nya (Dependency Inversion).
-    /// </summary>
+{    
     public interface IUserRepository
     {
         List<User> GetAll();

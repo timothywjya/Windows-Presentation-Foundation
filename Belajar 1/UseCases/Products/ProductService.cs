@@ -4,12 +4,6 @@ using Belajar_1.Domain.Interfaces;
 
 namespace Belajar_1.UseCases.Products
 {
-    /// <summary>
-    /// Orkestrasi use case Produk: validasi input & parsing angka, lalu
-    /// delegasi ke IProductRepository. Isinya adalah aturan-aturan yang dulu
-    /// ada di FormProduk.xaml.cs (ValidateForm + MapFormToModel), dipindah ke
-    /// sini supaya View benar-benar "bodoh" — sama seperti UserService.
-    /// </summary>
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;

@@ -7,14 +7,6 @@ using Belajar_1.UseCases.Products;
 
 namespace Belajar_1.Components.Form
 {
-    /// <summary>
-    /// View untuk fitur Produk. Sekarang murni "bodoh": tidak ada logika
-    /// database atau validasi di sini, semua lewat binding ke ProductViewModel.
-    /// Satu-satunya kode yang tersisa adalah:
-    ///  1. Composition root (merakit Repository + Service + ViewModel), dan
-    ///  2. Dialog konfirmasi hapus (MessageBox adalah tanggung jawab View,
-    ///     sama seperti pola di FormUser.xaml.cs).
-    /// </summary>
     public partial class FormProduk : UserControl
     {
         private readonly ProductViewModel _viewModel;
@@ -23,9 +15,6 @@ namespace Belajar_1.Components.Form
         {
             InitializeComponent();
 
-            // Composition root: satu-satunya tempat Presentation "tahu" tentang
-            // implementasi konkret Infrastructure. ViewModel sendiri hanya
-            // menerima IProductService lewat constructor-nya.
             IProductService productService = new ProductService(new ProductRepository());
 
             _viewModel = new ProductViewModel(productService);

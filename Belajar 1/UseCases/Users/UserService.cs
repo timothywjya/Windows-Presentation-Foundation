@@ -4,11 +4,6 @@ using Belajar_1.Domain.Interfaces;
 
 namespace Belajar_1.UseCases.Users
 {
-    /// <summary>
-    /// Orkestrasi use case User: validasi input, hashing password, lalu
-    /// delegasi ke IUserRepository. Semua aturan bisnis "Fitur User" hidup
-    /// di sini, terpisah dari UI (ViewModel/View) maupun akses data (Infrastructure).
-    /// </summary>
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;

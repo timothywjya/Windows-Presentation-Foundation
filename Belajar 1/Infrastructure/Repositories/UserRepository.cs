@@ -8,19 +8,12 @@ using Belajar_1.Services;
 
 namespace Belajar_1.Infrastructure.Repositories
 {
-    /// <summary>
-    /// Satu-satunya class dalam fitur User yang boleh tahu soal MySQL /
-    /// nama tabel & kolom. Application dan Presentation hanya bicara lewat
-    /// interface IUserRepository.
-    /// </summary>
     public class UserRepository : IUserRepository
     {
         public List<User> GetAll()
         {
             var users = new List<User>();
 
-            // Sengaja TIDAK mengambil USR_PASSWORD di sini supaya hash
-            // password tidak pernah ikut terbawa ke DataGrid di UI.
             const string query = @"SELECT USR_USERID, USR_USERNAME, USR_EMAIL, USR_USERLEVEL
                                     FROM tbmaster_user
                                     ORDER BY USR_USERNAME
@@ -89,7 +82,7 @@ namespace Belajar_1.Infrastructure.Repositories
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
             }
-            catch (MySqlException ex) when (ex.Number == 1062) // duplicate key
+            catch (MySqlException ex) when (ex.Number == 1062) 
             {
                 errorMessage = $"User ID '{user.UserId}' sudah digunakan.";
                 return false;

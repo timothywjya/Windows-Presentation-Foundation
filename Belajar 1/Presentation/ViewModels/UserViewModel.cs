@@ -6,11 +6,6 @@ using Belajar_1.UseCases.Users;
 
 namespace Belajar_1.Presentation.ViewModels
 {
-    /// <summary>
-    /// ViewModel untuk FormUser. Tidak tahu apa-apa soal MySQL/MD5/ADO.NET —
-    /// semua itu ada di balik IUserService. View (FormUser.xaml) hanya
-    /// berkomunikasi lewat binding ke properti & Command di sini.
-    /// </summary>
     public class UserViewModel : ViewModelBase
     {
         private readonly IUserService _userService;

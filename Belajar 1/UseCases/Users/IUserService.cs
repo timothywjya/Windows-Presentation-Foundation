@@ -3,10 +3,6 @@ using Belajar_1.Domain.Entities;
 
 namespace Belajar_1.UseCases.Users
 {
-    /// <summary>
-    /// Use case untuk fitur User. Ini yang di-inject ke ViewModel — ViewModel
-    /// tidak pernah tahu soal repository, koneksi database, atau hashing.
-    /// </summary>
     public interface IUserService
     {
         List<User> GetAllUsers();

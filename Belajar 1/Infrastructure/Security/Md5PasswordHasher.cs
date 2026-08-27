@@ -4,12 +4,6 @@ using Belajar_1.Domain.Interfaces;
 
 namespace Belajar_1.Infrastructure.Security
 {
-    /// <summary>
-    /// MD5 dipertahankan supaya kompatibel dengan hash password yang sudah
-    /// tersimpan di tabel tbmaster_user (dari kode lama). MD5 sudah tidak
-    /// dianggap aman untuk project baru — kalau memungkinkan, migrasikan ke
-    /// BCrypt/PBKDF2/Argon2 dan re-hash password user lama saat login pertama.
-    /// </summary>
     public class Md5PasswordHasher : IPasswordHasher
     {
         public string Hash(string plainText)

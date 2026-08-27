@@ -7,12 +7,6 @@ using Belajar_1.Services;
 
 namespace Belajar_1.Infrastructure.Repositories
 {
-    /// <summary>
-    /// Satu-satunya class dalam fitur Produk yang boleh tahu soal MySQL /
-    /// nama tabel & kolom (tbmaster_prodmast). Application dan Presentation
-    /// hanya bicara lewat interface IProductRepository — pola yang sama
-    /// persis dengan UserRepository.
-    /// </summary>
     public class ProductRepository : IProductRepository
     {
         private const string SelectColumns = @"PRD_PRDCD, PRD_NAMA, PRD_MERK, PRD_FLAVOUR, PRD_KEMASAN,
