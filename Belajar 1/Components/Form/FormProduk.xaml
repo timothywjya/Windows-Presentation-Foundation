@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="Belajar_1.Components.Form.FormProduk"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:comps="clr-namespace:Belajar_1.Components">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Margin="0,0,15,0" BorderBrush="#DEE2E6" BorderThickness="1" CornerRadius="6" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Background="#F8F9FA" Padding="12" BorderBrush="#DEE2E6" BorderThickness="0,0,0,1">
+                    <StackPanel>
+                        <TextBlock Text="Daftar PLU / Produk Terdaftar" FontWeight="Bold" Foreground="#495057" Margin="0,0,0,10"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <ComboBox x:Name="CmbSearchType" Grid.Column="0" Width="110" Height="30" VerticalContentAlignment="Center" Margin="0,0,6,0">
+                                <ComboBoxItem Content="Cari By PLU" Tag="PRD_PRDCD" IsSelected="True"/>
+                                <ComboBoxItem Content="Cari By Deskripsi" Tag="PRD_DESKRIPSI"/>
+                            </ComboBox>
+
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="TxtSearch" Grid.Column="0" Height="30" VerticalContentAlignment="Center" Padding="5,0" 
+                                         GotFocus="TxtSearch_GotFocus" LostFocus="TxtSearch_LostFocus" KeyDown="TxtSearch_KeyDown"/>
+                                <Button x:Name="BtnSearch" Grid.Column="1" Content="Cari" Width="55" Height="30" Margin="5,0,0,0"
+                                        Style="{StaticResource BtnPrimary}" Click="BtnSearch_Click"/>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <comps:Datatable Grid.Row="1" x:Name="GridProduct"/>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <Border Padding="20" Background="White" BorderBrush="#DEE2E6" BorderThickness="1" CornerRadius="6">
+                <StackPanel>
+                    <TextBlock Text="DATA PRODUK DETAIL" FontSize="16" FontWeight="Bold" Foreground="#212529" Margin="0,0,0,15"/>
+
+                    <UniformGrid Columns="2" Margin="0,0,0,10">
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Kode PLU (PRD_PRDCD)" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtCode" Height="30" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Merek (PRD_MERK)" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtMerk" Height="30" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </UniformGrid>
+
+                    <UniformGrid Columns="2" Margin="0,0,0,10">
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Nama Barang (PRD_NAMA)" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtName" Height="30" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Rasa (PRD_FLAVOUR)" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtFlavour" Height="30" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </UniformGrid>
+
+                    <UniformGrid Columns="3" Margin="0,0,0,10">
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Kemasan" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtKemasan" Height="30" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Ukuran" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtSize" Height="30" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Nama Produk" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtDeskripsi" Height="30" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </UniformGrid>
+
+                    <UniformGrid Columns="2" Margin="0,0,0,10">
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Unit Satuan (PRD_UNIT)" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtUnit" Height="30" VerticalContentAlignment="Center" Text="PCS"/>
+                        </StackPanel>
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Frac / Unit (PRD_FRAC)" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtFrac" Height="30" VerticalContentAlignment="Center" Text="1"/>
+                        </StackPanel>
+                    </UniformGrid>
+
+                    <UniformGrid Columns="2" Margin="0,0,0,15">
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Harga Jual (PRD_HRGJUAL)" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtPrice" Height="30" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Margin="5,0">
+                            <TextBlock Text="Harga Usulan (PRD_HRGJUAL2)" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="TxtPrice2" Height="30" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </UniformGrid>
+
+                    <Separator Margin="5,10" Background="#DEE2E6"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,5,0">
+                        <Button Content="Batal / Reset" Style="{StaticResource BtnSecondary}" Width="100" Margin="5,0" Click="BtnClear_Click"/>
+                        <Button Content="Hapus" Style="{StaticResource BtnDanger}" Width="90" Margin="5,0" Click="BtnDelete_Click"/>
+                        <Button Content="Simpan / Update" Style="{StaticResource BtnSuccess}" Width="120" Margin="5,0" Click="BtnUpdate_Click"/>
+                        <Button Content="Tambah Baru" Style="{StaticResource BtnPrimary}" Width="110" Margin="5,0" Click="BtnAdd_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

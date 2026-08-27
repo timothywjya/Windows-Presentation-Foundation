@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Belajar_1.Components.Form.FormSupplier"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:comps="clr-namespace:Belajar_1.Components">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Padding="15" Background="#F8F9FA" BorderBrush="#DEE2E6" BorderThickness="1" CornerRadius="6" Margin="0,0,0,15">
+            <StackPanel>
+                <UniformGrid Columns="5" Margin="0,0,0,10">
+                    <StackPanel Margin="5">
+                        <TextBlock Text="Kode Supp" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                        <TextBox x:Name="TxtSuppCode" Height="30" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="Nama Supplier" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                        <TextBox x:Name="TxtSuppName" Height="30" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="Singkatan" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                        <TextBox x:Name="TxtAlias" Height="30" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="Telepon" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                        <TextBox x:Name="TxtPhone" Height="30" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="Contact Person" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                        <TextBox x:Name="TxtCP" Height="30" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                </UniformGrid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Tambah" Style="{StaticResource BtnPrimary}" Width="90" Margin="5,0" Click="BtnAdd_Click"/>
+                    <Button Content="Simpan" Style="{StaticResource BtnSuccess}" Width="90" Margin="5,0" Click="BtnUpdate_Click"/>
+                    <Button Content="Hapus" Style="{StaticResource BtnDanger}" Width="90" Margin="5,0" Click="BtnDelete_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <comps:Datatable x:Name="GridSupplier"/>
+        </Grid>
+    </Grid>
+</UserControl>

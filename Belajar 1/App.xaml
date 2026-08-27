@@ -1,0 +1,42 @@
+﻿<Application x:Class="Belajar_1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Components/Form/LoginWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="BSSuccess" Color="#198754"/>
+        <SolidColorBrush x:Key="BSDanger" Color="#DC3545"/>
+        <SolidColorBrush x:Key="BSInfo" Color="#0D6EFD"/>
+        <SolidColorBrush x:Key="BSSecondary" Color="#6C757D"/>
+
+        <Style x:Key="BtnBase" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Padding" Value="15,0"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BtnPrimary" TargetType="Button" BasedOn="{StaticResource BtnBase}">
+            <Setter Property="Background" Value="#0D6EFD"/>
+        </Style>
+        <Style x:Key="BtnSuccess" TargetType="Button" BasedOn="{StaticResource BtnBase}">
+            <Setter Property="Background" Value="{StaticResource BSSuccess}"/>
+        </Style>
+        <Style x:Key="BtnDanger" TargetType="Button" BasedOn="{StaticResource BtnBase}">
+            <Setter Property="Background" Value="{StaticResource BSDanger}"/>
+        </Style>
+        <Style x:Key="BtnSecondary" TargetType="Button" BasedOn="{StaticResource BtnBase}">
+            <Setter Property="Background" Value="{StaticResource BSSecondary}"/>
+        </Style>
+    </Application.Resources>
+</Application>
