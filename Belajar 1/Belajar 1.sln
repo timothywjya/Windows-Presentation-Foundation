@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36603.0 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belajar 1", "Belajar 1\Belajar 1.csproj", "{157B5C0B-3DEC-4AE9-A509-1833297C452B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belajar 1", "Belajar 1.csproj", "{7211A125-4E71-49EA-0C50-5D125D36315A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{157B5C0B-3DEC-4AE9-A509-1833297C452B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{157B5C0B-3DEC-4AE9-A509-1833297C452B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{157B5C0B-3DEC-4AE9-A509-1833297C452B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{157B5C0B-3DEC-4AE9-A509-1833297C452B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7211A125-4E71-49EA-0C50-5D125D36315A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7211A125-4E71-49EA-0C50-5D125D36315A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7211A125-4E71-49EA-0C50-5D125D36315A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7211A125-4E71-49EA-0C50-5D125D36315A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {00D7D800-57AC-471B-829B-D12873C421B9}
+		SolutionGuid = {E6369C5F-75EE-44E1-B262-451B528AEF46}
 	EndGlobalSection
 EndGlobal

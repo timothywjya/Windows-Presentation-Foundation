@@ -1,44 +1,15 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace Belajar_1.Services
 {
-    public class DatabaseConnection
+    public static class DatabaseConnection
     {
-        private static readonly string ConnectionString =
-            "Server=192.168.10.10;" +
-            "Database=omi;" +
-            "Uid=root;" +
-            "Pwd=articunozapdosmoltres;" +
-            "AllowZeroDateTime=True;" +
-            "ConvertZeroDateTime=True;";
+        private const string ConnectionString =
+            "Server=localhost;Port=3306;Database=omi;Uid=root;Pwd=articunozapdosmoltres;";
 
         public static MySqlConnection GetConnection()
         {
             return new MySqlConnection(ConnectionString);
-        }
-
-        public static bool TestConnection(out string errorMessage)
-        {
-            errorMessage = string.Empty;
-            using (MySqlConnection conn = GetConnection())
-            {
-                try
-                {
-                    conn.Open();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    errorMessage = ex.Message;
-                    return false;
-                }
-            }
         }
     }
 }

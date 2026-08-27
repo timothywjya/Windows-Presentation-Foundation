@@ -39,6 +39,8 @@ namespace Belajar_1.Helper
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
+                    conn.Open(); 
+
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         if (parameters != null) cmd.Parameters.AddRange(parameters);

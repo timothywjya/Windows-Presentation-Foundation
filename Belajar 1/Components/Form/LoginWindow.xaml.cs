@@ -58,7 +58,7 @@ namespace Belajar_1
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < hashBytes.Length; i++)
                 {
-                    sb.Append(hashBytes[i].ToString("x2")); // "x2" menghasilkan format hex huruf kecil
+                    sb.Append(hashBytes[i].ToString("x2"));
                 }
                 return sb.ToString();
             }
