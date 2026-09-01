@@ -47,12 +47,13 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Watermark "Ketik kata kunci..." kini murni lewat binding (lihat EmptyStringToVisibilityConverter),
-                                     bukan trik GotFocus/LostFocus di code-behind seperti versi lama. -->
                                 <Grid Grid.Column="0">
-                                    <TextBox x:Name="TxtSearch" Height="30" VerticalContentAlignment="Center" Padding="5,0"
-                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
-                                             KeyDown="TxtSearch_KeyDown"/>
+                                    <TextBox Height="30" VerticalContentAlignment="Center" Padding="5,0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}">
+                                        <TextBox.InputBindings>
+                                            <KeyBinding Key="Enter" Command="{Binding SearchCommand}"/>
+                                        </TextBox.InputBindings>
+                                    </TextBox>
                                     <TextBlock Text="Ketik kata kunci..." Foreground="Gray" Margin="8,0,0,0"
                                                VerticalAlignment="Center" IsHitTestVisible="False"
                                                Visibility="{Binding SearchKeyword, Converter={StaticResource EmptyToVisibility}}"/>

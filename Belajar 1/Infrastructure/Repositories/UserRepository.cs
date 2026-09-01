@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using MySql.Data.MySqlClient;
 using Belajar_1.Domain.Entities;
 using Belajar_1.Domain.Interfaces;
@@ -82,7 +81,7 @@ namespace Belajar_1.Infrastructure.Repositories
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
             }
-            catch (MySqlException ex) when (ex.Number == 1062) 
+            catch (MySqlException ex) when (ex.Number == 1062) // duplicate key
             {
                 errorMessage = $"User ID '{user.UserId}' sudah digunakan.";
                 return false;

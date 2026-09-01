@@ -4,6 +4,10 @@ using Belajar_1.Domain.Interfaces;
 
 namespace Belajar_1.UseCases.Products
 {
+    /// <summary>
+    /// Use case untuk fitur Produk. Ini yang di-inject ke ProductViewModel —
+    /// ViewModel tidak pernah tahu soal repository atau koneksi database.
+    /// </summary>
     public interface IProductService
     {
         List<Product> GetAllProducts();

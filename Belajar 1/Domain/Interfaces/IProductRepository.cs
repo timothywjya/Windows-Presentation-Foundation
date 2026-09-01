@@ -2,12 +2,12 @@ using System.Collections.Generic;
 
 namespace Belajar_1.Domain.Interfaces
 {
+    /// <summary>Field yang boleh dicari. Enum ini yang membuat Domain tidak perlu tahu nama kolom SQL asli (PRD_PRDCD/PRD_DESKRIPSI) — pemetaan ke kolom dilakukan di Infrastructure.</summary>
     public enum ProductSearchField
     {
         Kode,
         Deskripsi
     }
-
     public interface IProductRepository
     {
         List<Entities.Product> GetAll();

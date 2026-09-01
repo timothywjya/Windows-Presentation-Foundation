@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Belajar_1.Domain.Entities;
 
 namespace Belajar_1.Domain.Interfaces
-{    
+{
     public interface IUserRepository
     {
         List<User> GetAll();

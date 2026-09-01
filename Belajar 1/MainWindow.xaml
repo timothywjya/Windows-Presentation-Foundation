@@ -23,20 +23,28 @@
                     <TextBlock Text="Indogrosir &amp; Indomaret Division" FontSize="11" Foreground="#6C757D" Margin="0,4,0,0"/>
                 </StackPanel>
 
+                <!--
+                    Ketiga tombol menu di-bind ke SATU Command (NavigateCommand)
+                    dengan CommandParameter berbeda — menggantikan 3 event
+                    handler terpisah (MenuProduk_Click, dst) di code-behind.
+                    Menu Retur sudah dihapus.
+                -->
                 <StackPanel Grid.Row="1" VerticalAlignment="Top">
-                    <Button Content="📦    Master Produk" Click="MenuProduk_Click"
-            Style="{StaticResource BtnPrimary}" Width="230" HorizontalAlignment="Center" Margin="0,4"/>
+                    <Button Content="📦    Master Produk" Style="{StaticResource BtnPrimary}"
+                            Width="230" HorizontalAlignment="Center" Margin="0,4"
+                            Command="{Binding NavigateCommand}" CommandParameter="produk"/>
 
-                    <Button Content="🏭    Master Supplier" Click="MenuSupplier_Click"
-            Style="{StaticResource BtnSuccess}" Width="230" HorizontalAlignment="Center" Margin="0,4"/>
+                    <Button Content="🏭    Master Supplier" Style="{StaticResource BtnSuccess}"
+                            Width="230" HorizontalAlignment="Center" Margin="0,4"
+                            Command="{Binding NavigateCommand}" CommandParameter="supplier"/>
 
-                    <Button Content="👤    Master User" Click="MenuUser_Click"
-            Style="{StaticResource BtnSecondary}" Width="230" HorizontalAlignment="Center" Margin="0,4"/>
-
-                   
+                    <Button Content="👤    Master User" Style="{StaticResource BtnSecondary}"
+                            Width="230" HorizontalAlignment="Center" Margin="0,4"
+                            Command="{Binding NavigateCommand}" CommandParameter="user"/>
                 </StackPanel>
 
-                <TextBlock Grid.Row="2" Text="v1.0.0 © 2026 Internal App" FontSize="11" Foreground="#495057" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                <TextBlock Grid.Row="2" Text="v1.1.0 © 2026 Internal App (Clean Architecture + MVVM)" FontSize="10"
+                           Foreground="#495057" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,10,0,0"/>
             </Grid>
         </Border>
 
@@ -51,7 +59,7 @@
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <TextBlock Text="Dashboard" Foreground="#6C757D" FontSize="14"/>
                         <TextBlock Text=" / " Foreground="#6C757D" FontSize="14"/>
-                        <TextBlock x:Name="TxtNavbarTitle" Text="Selamat Datang" Foreground="#212529" FontSize="14" FontWeight="SemiBold"/>
+                        <TextBlock Text="{Binding PageTitle}" Foreground="#212529" FontSize="14" FontWeight="SemiBold"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -61,8 +69,10 @@
                 </Grid>
             </Border>
 
+            <!-- Konten halaman kini murni lewat Binding ke CurrentView, bukan
+                 di-set manual dari code-behind (MainContentFrame.Content = ...). -->
             <Border Grid.Row="1" Padding="25">
-                <ContentControl x:Name="MainContentFrame" />
+                <ContentControl Content="{Binding CurrentView}"/>
             </Border>
         </Grid>
 

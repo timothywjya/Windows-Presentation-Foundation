@@ -7,6 +7,12 @@ using Belajar_1.UseCases.Products;
 
 namespace Belajar_1.Presentation.ViewModels
 {
+    /// <summary>
+    /// ViewModel untuk FormProduk. Sama seperti UserViewModel: tidak tahu
+    /// apa-apa soal MySQL/ADO.NET — semua itu ada di balik IProductService.
+    /// View (FormProduk.xaml) hanya berkomunikasi lewat binding ke properti
+    /// & Command di sini.
+    /// </summary>
     public class ProductViewModel : ViewModelBase
     {
         private readonly IProductService _productService;

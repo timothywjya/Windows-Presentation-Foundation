@@ -1,5 +1,5 @@
 namespace Belajar_1.Domain.Entities
-{
+{ 
     public class Product
     {
         public string Kode { get; set; } = string.Empty;

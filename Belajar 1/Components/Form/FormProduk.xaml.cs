@@ -1,6 +1,5 @@
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using Belajar_1.Infrastructure.Repositories;
 using Belajar_1.Presentation.ViewModels;
 using Belajar_1.UseCases.Products;
@@ -15,16 +14,13 @@ namespace Belajar_1.Components.Form
         {
             InitializeComponent();
 
+            // Composition root: satu-satunya tempat Presentation "tahu" tentang
+            // implementasi konkret Infrastructure. ViewModel sendiri hanya
+            // menerima IProductService lewat constructor-nya.
             IProductService productService = new ProductService(new ProductRepository());
 
             _viewModel = new ProductViewModel(productService);
             DataContext = _viewModel;
-        }
-
-        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter && _viewModel.SearchCommand.CanExecute(null))
-                _viewModel.SearchCommand.Execute(null);
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)

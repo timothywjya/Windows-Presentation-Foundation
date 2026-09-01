@@ -1,38 +1,19 @@
-﻿using Belajar_1.Components;
-using System.Windows;
-using System.Windows.Controls;
-using Belajar_1.Components.Form;
+﻿using System.Windows;
+using Belajar_1.Presentation.ViewModels;
 
 namespace Belajar_1
 {
+    /// <summary>
+    /// Shell aplikasi. Tidak ada lagi logika navigasi di sini — semuanya
+    /// dipindah ke MainViewModel, code-behind ini hanya menyambungkan View
+    /// ke ViewModel-nya (composition root untuk shell).
+    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-
-            LoadModule(new FormProduk(), "Master Product / Manajemen Produk");
-        }
-
-        private void LoadModule(UserControl contentPage, string pageTitle)
-        {
-            TxtNavbarTitle.Text = pageTitle;
-            MainContentFrame.Content = contentPage;
-        }
-
-        private void MenuProduk_Click(object sender, RoutedEventArgs e)
-        {
-            LoadModule(new FormProduk(), "Product Master)");
-        }
-
-        private void MenuSupplier_Click(object sender, RoutedEventArgs e)
-        {
-            LoadModule(new FormSupplier(), "Master Data Supplier");
-        }
-
-        private void MenuUser_Click(object sender, RoutedEventArgs e)
-        {
-            LoadModule(new FormUser(), "Management User");
+            DataContext = new MainViewModel();
         }
     }
 }

@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Belajar_1.Components.Form
 {
-    /// <summary>
-    /// Interaction logic for FormRetur.xaml
-    /// </summary>
     public partial class FormRetur : UserControl
     {
         public FormRetur()

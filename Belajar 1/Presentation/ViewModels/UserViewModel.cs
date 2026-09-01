@@ -1,4 +1,3 @@
-using System;
 using System.Collections.ObjectModel;
 using Belajar_1.Domain.Entities;
 using Belajar_1.Helpers;
@@ -6,6 +5,11 @@ using Belajar_1.UseCases.Users;
 
 namespace Belajar_1.Presentation.ViewModels
 {
+    /// <summary>
+    /// ViewModel untuk FormUser. Tidak tahu apa-apa soal MySQL/MD5/ADO.NET —
+    /// semua itu ada di balik IUserService. View (FormUser.xaml) hanya
+    /// berkomunikasi lewat binding ke properti & Command di sini.
+    /// </summary>
     public class UserViewModel : ViewModelBase
     {
         private readonly IUserService _userService;
@@ -28,7 +32,6 @@ namespace Belajar_1.Presentation.ViewModels
                     LevelText = value.UserLevel.ToString();
                     Password = string.Empty;
                     IsUserIdEditable = false;
-                    RequestClearPasswordBox?.Invoke();
                 }
             }
         }
@@ -55,10 +58,10 @@ namespace Belajar_1.Presentation.ViewModels
         }
 
         /// <summary>
-        /// PasswordBox.Password tidak bisa di-binding langsung (dibatasi WPF
-        /// demi keamanan), jadi code-behind FormUser meng-copy nilainya ke
-        /// sini lewat event PasswordChanged. Selebihnya properti ini
-        /// diperlakukan seperti properti ViewModel biasa.
+        /// Password diperlakukan seperti properti ViewModel biasa — bisa
+        /// begitu karena PasswordBox di View di-binding lewat
+        /// Helpers/PasswordBoxAssistant.cs (attached property), bukan lewat
+        /// x:Name + event PasswordChanged manual.
         /// </summary>
         private string _password = string.Empty;
         public string Password
@@ -87,12 +90,6 @@ namespace Belajar_1.Presentation.ViewModels
             get => _errorMessage;
             set => SetField(ref _errorMessage, value);
         }
-
-        /// <summary>
-        /// View wajib subscribe ini untuk mengosongkan PasswordBox, karena
-        /// ViewModel tidak boleh (dan tidak bisa) menyentuh elemen UI secara langsung.
-        /// </summary>
-        public event Action? RequestClearPasswordBox;
 
         public RelayCommand AddCommand { get; }
         public RelayCommand UpdateCommand { get; }
@@ -174,7 +171,6 @@ namespace Belajar_1.Presentation.ViewModels
             LevelText = string.Empty;
             IsUserIdEditable = true;
             ErrorMessage = string.Empty;
-            RequestClearPasswordBox?.Invoke();
         }
 
         private bool TryParseLevel(out int level)

@@ -7,15 +7,6 @@ using Belajar_1.UseCases.Users;
 
 namespace Belajar_1.Components.Form
 {
-    /// <summary>
-    /// View untuk fitur User. Sekarang murni "bodoh": tidak ada logika
-    /// database atau validasi di sini, semua lewat binding ke UserViewModel.
-    /// Satu-satunya kode yang tersisa adalah:
-    ///  1. Composition root (merakit Repository + Service + ViewModel), dan
-    ///  2. Dua hal yang memang tidak bisa di-binding murni di WPF:
-    ///     PasswordBox.Password (dibatasi API keamanan WPF) dan
-    ///     dialog konfirmasi hapus (MessageBox adalah tanggung jawab View).
-    /// </summary>
     public partial class FormUser : UserControl
     {
         private readonly UserViewModel _viewModel;
@@ -30,14 +21,7 @@ namespace Belajar_1.Components.Form
             IUserService userService = new UserService(new UserRepository(), new Md5PasswordHasher());
 
             _viewModel = new UserViewModel(userService);
-            _viewModel.RequestClearPasswordBox += () => TxtPassword.Clear();
-
             DataContext = _viewModel;
-        }
-
-        private void TxtPassword_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            _viewModel.Password = TxtPassword.Password;
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)

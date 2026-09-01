@@ -12,36 +12,47 @@
             <StackPanel>
                 <UniformGrid Columns="5" Margin="0,0,0,10">
                     <StackPanel Margin="5">
-                        <TextBlock Text="Kode Supp" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                        <TextBox x:Name="TxtSuppCode" Height="30" VerticalContentAlignment="Center"/>
+                        <TextBlock Text="Kode Supplier" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                        <TextBox Height="30" VerticalContentAlignment="Center"
+                                 Text="{Binding Kode, UpdateSourceTrigger=PropertyChanged}"
+                                 IsEnabled="{Binding IsKodeEditable}"/>
                     </StackPanel>
                     <StackPanel Margin="5">
                         <TextBlock Text="Nama Supplier" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                        <TextBox x:Name="TxtSuppName" Height="30" VerticalContentAlignment="Center"/>
+                        <TextBox Height="30" VerticalContentAlignment="Center"
+                                 Text="{Binding Nama, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
                     <StackPanel Margin="5">
                         <TextBlock Text="Singkatan" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                        <TextBox x:Name="TxtAlias" Height="30" VerticalContentAlignment="Center"/>
+                        <TextBox Height="30" VerticalContentAlignment="Center"
+                                 Text="{Binding Singkatan, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
                     <StackPanel Margin="5">
                         <TextBlock Text="Telepon" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                        <TextBox x:Name="TxtPhone" Height="30" VerticalContentAlignment="Center"/>
+                        <TextBox Height="30" VerticalContentAlignment="Center"
+                                 Text="{Binding Telepon, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
                     <StackPanel Margin="5">
                         <TextBlock Text="Contact Person" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                        <TextBox x:Name="TxtCP" Height="30" VerticalContentAlignment="Center"/>
+                        <TextBox Height="30" VerticalContentAlignment="Center"
+                                 Text="{Binding ContactPerson, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
                 </UniformGrid>
+
+                <TextBlock Text="{Binding ErrorMessage}" Foreground="#DC3545" FontWeight="SemiBold"
+                           TextWrapping="Wrap" Margin="5,0,5,10"/>
+
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="Tambah" Style="{StaticResource BtnPrimary}" Width="90" Margin="5,0" Click="BtnAdd_Click"/>
-                    <Button Content="Simpan" Style="{StaticResource BtnSuccess}" Width="90" Margin="5,0" Click="BtnUpdate_Click"/>
+                    <Button Content="Reset" Style="{StaticResource BtnSecondary}" Width="90" Margin="5,0" Command="{Binding ClearCommand}"/>
+                    <Button Content="Tambah" Style="{StaticResource BtnPrimary}" Width="90" Margin="5,0" Command="{Binding AddCommand}"/>
+                    <Button Content="Simpan" Style="{StaticResource BtnSuccess}" Width="90" Margin="5,0" Command="{Binding UpdateCommand}"/>
                     <Button Content="Hapus" Style="{StaticResource BtnDanger}" Width="90" Margin="5,0" Click="BtnDelete_Click"/>
                 </StackPanel>
             </StackPanel>
         </Border>
 
         <Grid Grid.Row="1">
-            <comps:Datatable x:Name="GridSupplier"/>
+            <comps:Datatable ItemsSource="{Binding Suppliers}" SelectedItem="{Binding SelectedSupplier, Mode=TwoWay}"/>
         </Grid>
     </Grid>
 </UserControl>
